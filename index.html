@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+
+    <body style="font-family: Arial, Helvetica, sans-serif; background-image: url(background-map.jpg); background-size: cover;"></body>
+        <div style="top: 0px; position: absolute; width: 100%; display: flex; backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.75); color: black; justify-content: space-between;">
+            <p style="margin-left: 16px; font-weight: 700;">
+                MapOS
+            </p>
+            <p id="timeElement" style="margin-right: 16px;">
+                Date Time
+            </p>
+        </div>
+        
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: solid; width: fit-content; padding: 16px; background-color: white;">
+            <img style="width: 64px; height: 64px; border-radius: 50%; border: 1px solid black; object-fit: cover;" src="train.png"/>
+            <h1 style="margin: 4px;">MapOS</h1>
+            <p style="margin: 4px;">Travel your desktop on a train!</p>
+        </div>
+
+        <script>
+            function updateTime() {
+                var currentTime = new Date().toLocaleString();
+                var timeText = document.querySelector("#timeElement");
+                timeText.innerHTML = currentTime;
+            }
+            setInterval(updateTime, 1000);
+        </script>
+    </body>
+
+</html>
