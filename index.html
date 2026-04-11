@@ -7,24 +7,84 @@
     </head>
 
     <body>
-        <div class="top-bar">
-            <p style="margin-left: 16px; font-weight: 700;">
-                MapOS
-            </p>
-            <p id="timeElement" style="margin-right: 16px;">
-                Date Time
-            </p>
-        </div>
-        
-        <div id="welcome">
-            <div id="welcomeheader">
-                <p style="margin: 0px; color: black; font-weight: 600;">Welcome</p>
+        <div class="content">
+            <div class="top-bar">
+                <p id="welcomeopen" style="margin-left: 16px; font-weight: 700; cursor: pointer;">
+                    MapOS
+                </p>
+                <p id="timeElement" style="margin-right: 16px;">
+                    Date Time
+                </p>
             </div>
-            <div class="window-content">
-                <img style="width: 64px; height: 64px; border-radius: 50%; border: 1px solid black; object-fit: cover;" src="train.png"/>
-                <h1 style="margin: 4px;">MapOS</h1>
-                <p style="margin: 4px;">Travel your desktop on a train!</p>
+            
+            <div id="welcome">
+                <div id="welcomeheader">
+                    <div id="welcomeclose"></div>
+                    <p style="margin: 0px; color: black; font-weight: 600;">Welcome</p>
+                    <div style="width: 16px; margin-right: 6x; height: 16px;"></div>
+                </div>
+                <div class="window-content">
+                    <img style="width: 64px; height: 64px; border-radius: 50%; border: 1px solid black; object-fit: cover;" src="train.png"/>
+                    <h1 style="margin: 4px;">MapOS</h1>
+                    <p style="margin: 4px;">Travel your desktop on a train!</p>
+                    <p style="margin: 4px;"><br><em>Locations: </em><br>
+                        • Text Territory<br>
+                        • Productivity Peak<br>
+                        • Calculation Cove<br>
+                        • Web Waterhole<br>
+                        • File Forest
+                    </p>
+                </div>
             </div>
+
+            <div id="traincontainer">
+                <div id="train">
+                    <p class="location-label">Text Territory</p>
+                    <img style="width: 128px; height: 128px; border-radius: 50%; border: 1px solid black; background-color: rgba(255, 255, 255, 0.5); padding: 4px;" src="train.png"/>
+                </div>
+                <div id="directions">
+                    <div id="left-direction" class="left-direction">
+                        <img style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid black; padding: 4px;" src="left-arrow.png"/>
+                        <p id="left-text">To File Forest</p>
+                    </div>
+                    <div id="right-direction" class="right-direction">
+                        <p id="right-text">To Calculation Cove</p>
+                        <img style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid black; padding: 4px;" src="right-arrow.png"/>
+                    </div>
+                </div>
+            </div>
+
+            <div id="map-labels">
+                <p class="peaks">Productivity Peaks</p>
+                <p class="territory">Text Territory</p>
+                <p class="cove">Calculation Cove</p>
+                <p class="waterhole">Web Waterhole</p>
+                <p class="forest">File Forest</p>
+            </div>
+
+            <div id="desktopApps">
+                <div class="notes" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                    <img src="notes.ico" style="width: 64px; height: 64px; border-radius: 16px;">
+                    <p style="margin: 0px; color: #fff; ">Notes</p>
+                </div>
+                <div class="files" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                    <img src="files.png" style="width: 64px; height: 64px; border-radius: 16px;">
+                    <p style="margin: 0px; color: #fff; ">Files</p>
+                </div>
+                <div class="internet" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                    <img src="internet.png" style="width: 64px; height: 64px; border-radius: 16px;">
+                    <p style="margin: 0px; color: #fff; ">Internet</p>
+                </div>
+                <div class="calc" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                    <img src="calc.png" style="width: 64px; height: 64px; border-radius: 16px;">
+                    <p style="margin: 0px; color: #fff; ">Calculator</p>
+                </div>
+                <div class="todo" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                    <img src="todo.png" style="width: 64px; height: 64px; border-radius: 16px;">
+                    <p style="margin: 0px; color: #fff; ">ToDo</p>
+                </div>
+            </div>
+
         </div>
 
         <script>
