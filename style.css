@@ -33,9 +33,10 @@ body {
     background-color: rgba(255, 255, 255, 0.75);
     color: black;
     justify-content: space-between;
+    isolation: isolate;
 }
 
-#welcome {
+.window {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -47,7 +48,7 @@ body {
     z-index: 1;
 }
 
-#welcomeheader {
+.windowheader {
     width: 100%;
     display: flex;
     align-items: center;
@@ -64,7 +65,7 @@ body {
     padding: 16px;
 }
 
-#welcomeclose {
+.windowclose {
     cursor: pointer;
     width: 10px;
     height: 10px;
@@ -76,12 +77,14 @@ body {
 
 #traincontainer {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content; 
     display: none;
     justify-items: center;
     align-items: center;
+    isolation: isolate;
 }
 
 #train {
@@ -180,36 +183,64 @@ body {
 
 
 .notes {
+    position: absolute;
     display: none;
     user-select: none;
-    transform: translate(800px, 300px);
+    top: 300px;
+    left: 800px;
+}
+
+.notesedit:focus {
+    outline: none;
+}
+
+.notesbutton {
+    appearance: none;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+#notesTitle:focus {
+    outline: none;
 }
 
 .files {
+    position: absolute;
     display: none;
     user-select: none;
-    transform: translate(500px, 300px);
+    top: 300px;
+    left: 500px;
 }
 
 .internet {
+    position: absolute;
     display: none;
     user-select: none;
-    transform: translate(550px, 300px);
+    top: 300px;
+    left: 550px;
 }
 
 .todo {
+    position: absolute;
     display: none;
     user-select: none;
-    transform: translate(450px, 300px);
+    top: 300px;
+    left: 450px;
 }
 
 .calc {
+    position: absolute;
     display: none;
     user-select: none;
-    transform: translate(850px, 300px);
+    top: 300px;
+    left: 850px;
 }
 
-.selected {
-    border: 2px solid blue;
-    border-radius: 12px;
+.selected p {
+    background-color: blue;
+    color: white;
 }

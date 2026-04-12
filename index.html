@@ -8,7 +8,7 @@
 
     <body>
         <div class="content">
-            <div class="top-bar">
+            <div class="top-bar" id="top">
                 <p id="welcomeopen" style="margin-left: 16px; font-weight: 700; cursor: pointer;">
                     MapOS
                 </p>
@@ -17,9 +17,9 @@
                 </p>
             </div>
             
-            <div id="welcome">
-                <div id="welcomeheader">
-                    <div id="welcomeclose"></div>
+            <div class="window" id="welcome">
+                <div class="windowheader" id="welcomeheader">
+                    <div class="windowclose" id="welcomeclose"></div>
                     <p style="margin: 0px; color: black; font-weight: 600;">Welcome</p>
                     <div style="width: 16px; margin-right: 6x; height: 16px;"></div>
                 </div>
@@ -29,7 +29,7 @@
                     <p style="margin: 4px;">Travel your desktop on a train!</p>
                     <p style="margin: 4px;"><br><em>Locations: </em><br>
                         • Text Territory<br>
-                        • Productivity Peak<br>
+                        • Productivity Peaks<br>
                         • Calculation Cove<br>
                         • Web Waterhole<br>
                         • File Forest
@@ -62,8 +62,8 @@
                 <p class="forest">File Forest</p>
             </div>
 
-            <div id="desktopApps">
-                <div class="notes" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+            <div id="desktopApps" style="position: absolute; z-index: 5;">
+                <div id="notesopen" class="notes" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
                     <img src="notes.ico" style="width: 64px; height: 64px; border-radius: 16px;">
                     <p style="margin: 0px; color: #fff; ">Notes</p>
                 </div>
@@ -85,6 +85,32 @@
                 </div>
             </div>
 
+            <div class="window" id="notes" style="display: none; width: 520px; height: 480px;">
+                <div class="windowheader" id="notesheader">
+                    <div class="windowclose" id="notesclose"></div>
+                    <p style="margin: 0px; color: black; font-weight: 600;">Notes</p>
+                    <div style="width: 16px; margin-right: 6x; height: 16px;"></div>
+                </div>
+                <div class="window-content" style="background-color: #fff; margin: 6px; border-radius: 12px; padding: 16px; font-family: Courier; display: flex; height: 400px;">
+                    <div>    
+                        <button onclick="newNote()" class="notesbutton" style="width: 182px; margin-top: 0px; margin-bottom: 10px;">New Note</button>
+                        <div id="sidebar" style="background-color: #ebebeb; width: 150px; height: 268px; margin-right: 16px; padding: 16px; border-radius: 16px; cursor: pointer;">
+                        </div>
+                        <button onclick="deleteNote()" class="notesbutton" style="width: 182px;">Delete Note</button>
+                    </div>
+                    <div>
+                        <div id="notesTitle" contenteditable="True" style="overflow-x: scroll; margin-bottom: 10px; width: 248px; height: 16px; font-family: 'Courier New', Courier, monospace; background-color: white; border-radius: 8px; padding: 12px; cursor: text; color: black; border: 1px solid black;">
+                        Title</div>
+                        <div id="notesContent" style="overflow-y: scroll; height: 268px; width: 248px; font-family: 'Courier New', Courier, monospace; background-color: black; border-radius: 16px; padding: 16px; cursor: text; color: white;">
+                        </div>
+                        <div style="display: flex; gap: 20px; width: 100%;">
+                            <button onclick="cancelNote()" class="notesbutton" style="flex-grow: 1;">Discard Changes</button>
+                            <button onclick="saveNote()" class="notesbutton" style="flex-grow: 1;">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <script>
@@ -97,6 +123,7 @@
         </script>
 
         <script src="script.js"></script>
+        <script src="apps.js"></script>
     </body>
 
 </html>
