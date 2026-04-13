@@ -215,6 +215,7 @@ function mapClosed() {
 
 function closeWindow(element) {
     element.style.display = "none"
+    trainScreen.style.zIndex = 2
 }
 
 function openWindow(element) {
@@ -222,6 +223,7 @@ function openWindow(element) {
     biggestIndex++;
     element.style.zIndex = biggestIndex;
     topBar.style.zIndex = biggestIndex + 1;
+    trainScreen.style.zIndex = 2;
 }
 
 initializeWindow("welcome")

@@ -1,14 +1,19 @@
-var notesContent = [
-    {
-        title: "Top Secret Notes",
-        date: new Date().toLocaleDateString(),
-        content: `
-        <p class="notesedit" contenteditable="True" style="overflow-y: scroll;">
-            <span contenteditable="True" style="overflow-y: scroll; appearance: none;">Welcome to <strong>Text Territory</strong></span>
-        </p>
-        `
-    },
-]
+var notesContent = JSON.parse(localStorage.getItem("notesContent"));
+
+if (notesContent == null) {
+    notesContent = [
+        {
+            title: "Top Secret Notes",
+            date: new Date().toLocaleDateString(),
+            content: `
+            <p class="notesedit" contenteditable="True" style="overflow-y: scroll;">
+                <span contenteditable="True" style="overflow-y: scroll; appearance: none;">Welcome to <strong>Text Territory</strong></span>
+            </p>
+            `
+        },
+    ]
+    localStorage.setItem("notesContent", JSON.stringify(notesContent));
+}
 
 var currentNote = 0;
 
@@ -51,6 +56,7 @@ function saveNote() {
     for (let i = 0; i < notesContent.length; i++) {
         addToSideBar(i)
     }
+    localStorage.setItem("notesContent", JSON.stringify(notesContent));
 }
 
 function cancelNote() {
@@ -73,6 +79,7 @@ function newNote() {
     currentNote = notesContent.length - 1;
     addToSideBar(currentNote);
     setNotesContent(currentNote);
+    localStorage.setItem("notesContent", JSON.stringify(notesContent));
 }
 
 function deleteNote() {
@@ -84,6 +91,7 @@ function deleteNote() {
             addToSideBar(i)
         }
         setNotesContent(0);
+        localStorage.setItem("notesContent", JSON.stringify(notesContent));
     }
 }
 

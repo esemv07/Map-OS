@@ -94,12 +94,12 @@
                 <div class="window-content" style="background-color: #fff; margin: 6px; border-radius: 12px; padding: 16px; font-family: Courier; display: flex; height: 400px;">
                     <div>    
                         <button onclick="newNote()" class="notesbutton" style="width: 182px; margin-top: 0px; margin-bottom: 10px;">New Note</button>
-                        <div id="sidebar" style="background-color: #ebebeb; width: 150px; height: 268px; margin-right: 16px; padding: 16px; border-radius: 16px; cursor: pointer;">
+                        <div id="sidebar" style="overflow-y: scroll; background-color: #ebebeb; width: 150px; height: 268px; margin-right: 16px; padding: 16px; border-radius: 16px; cursor: pointer;">
                         </div>
                         <button onclick="deleteNote()" class="notesbutton" style="width: 182px;">Delete Note</button>
                     </div>
                     <div>
-                        <div id="notesTitle" contenteditable="True" style="overflow-x: scroll; margin-bottom: 10px; width: 248px; height: 16px; font-family: 'Courier New', Courier, monospace; background-color: white; border-radius: 8px; padding: 12px; cursor: text; color: black; border: 1px solid black;">
+                        <div id="notesTitle" contenteditable="True" style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap; margin-bottom: 10px; width: 248px; height: 16px; font-family: 'Courier New', Courier, monospace; background-color: white; border-radius: 8px; padding: 12px; cursor: text; color: black; border: 1px solid black;">
                         Title</div>
                         <div id="notesContent" style="overflow-y: scroll; height: 268px; width: 248px; font-family: 'Courier New', Courier, monospace; background-color: black; border-radius: 16px; padding: 16px; cursor: text; color: white;">
                         </div>
