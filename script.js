@@ -34,7 +34,21 @@ var notesScreen = document.querySelector("#notes")
 var notesScreenClose = document.querySelector("#notesclose")
 var notesScreenOpen = document.querySelector("#notesopen")
 
+var calcScreen = document.querySelector("#calculator")
+var calcScreenClose = document.querySelector("#calculatorclose")
+var calcScreenOpen = document.querySelector("#calculatoropen")
+
 var topBar = document.querySelector("#top")
+
+
+calcScreenClose.addEventListener("click", function()  {
+    closeWindow(calcScreen);
+    deselectIcon(calcScreenOpen);
+});
+calcScreenOpen.addEventListener("click", function() {
+    openWindow(calcScreen);
+    selectIcon(calcScreenOpen);
+});
 
 
 notesScreenClose.addEventListener("click", function()  {
@@ -228,6 +242,7 @@ function openWindow(element) {
 
 initializeWindow("welcome")
 initializeWindow("notes")
+initializeWindow("calculator")
 
 
 function dragElement(element) {

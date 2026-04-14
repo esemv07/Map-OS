@@ -75,7 +75,7 @@
                     <img src="internet.png" style="width: 64px; height: 64px; border-radius: 16px;">
                     <p style="margin: 0px; color: #fff; ">Internet</p>
                 </div>
-                <div class="calc" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                <div id="calculatoropen" class="calc" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
                     <img src="calc.png" style="width: 64px; height: 64px; border-radius: 16px;">
                     <p style="margin: 0px; color: #fff; ">Calculator</p>
                 </div>
@@ -107,6 +107,40 @@
                             <button onclick="cancelNote()" class="notesbutton" style="flex-grow: 1;">Discard Changes</button>
                             <button onclick="saveNote()" class="notesbutton" style="flex-grow: 1;">Save Changes</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="window" id="calculator" style="display: none; width: 520px; height: 480px;">
+                <div class="windowheader" id="calculatorheader">
+                    <div class="windowclose" id="calculatorclose"></div>
+                    <p style="margin: 0px; color: black; font-weight: 600;">Calculator</p>
+                    <div style="width: 16px; margin-right: 6x; height: 16px;"></div>
+                </div>
+                <div class="window-content">
+                    <div class="calc-text">
+                        <p name="user-input" id="user-input">0</p>
+                    </div>
+                    <div class="calc-buttons">
+                        <button type="button" class="key-others operations">AC</button>
+                        <button type="button" class="key-others operations">DEL</button>
+                        <button type="button" class="key-others operations">%</button>
+                        <button type="button" class="key-operate operations">÷</button>
+                        <button type="button" class="numbers">7</button>
+                        <button type="button" class="numbers">8</button>
+                        <button type="button" class="numbers">9</button>
+                        <button type="button" class="key-operate operations">×</button>
+                        <button type="button" class="numbers">4</button>
+                        <button type="button" class="numbers">5</button>
+                        <button type="button" class="numbers">6</button>
+                        <button type="button" class="key-operate operations">–</button>
+                        <button type="button" class="numbers">1</button>
+                        <button type="button" class="numbers">2</button>
+                        <button type="button" class="numbers">3</button>
+                        <button type="button" class="key-operate operations">+</button>
+                        <button type="button" class="key-zero numbers">0</button>
+                        <button type="button" class="numbers">.</button>
+                        <button type="button" class="key-operate operations">=</button>
                     </div>
                 </div>
             </div>

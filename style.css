@@ -240,6 +240,67 @@ body {
     left: 850px;
 }
 
+.calc-text {
+    padding-right: 8px;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 8px;
+}
+
+.calc-text p {
+    width: 100%;
+    font-size: 3.5rem;
+    text-align: end;
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    column-gap: 0px;
+}
+
+.calc-buttons button {
+    border: 1px solid black;
+    font-size: 1.5rem;
+    cursor: pointer;
+    height: 64px;
+}
+
+.calc-buttons button:active,
+.calc-buttons button:focus {
+    filter: brightness(120%);
+}
+
+.key-zero {
+    grid-column: span 2;
+    width: 100%;
+    color: white;
+}
+
+.key-operate {
+    background: #ff9501;
+    color: white;
+}
+
+.key-others {
+    background: #a6a6a6;
+    color: black;
+}
+
+.numbers {
+    background: #333333;
+    color: white;
+}
+
+
 .selected p {
     background-color: blue;
     color: white;
