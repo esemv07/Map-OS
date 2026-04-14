@@ -38,7 +38,21 @@ var calcScreen = document.querySelector("#calculator")
 var calcScreenClose = document.querySelector("#calculatorclose")
 var calcScreenOpen = document.querySelector("#calculatoropen")
 
+var webScreen = document.querySelector("#web")
+var webScreenClose = document.querySelector("#webclose")
+var webScreenOpen = document.querySelector("#webopen")
+
 var topBar = document.querySelector("#top")
+
+
+webScreenClose.addEventListener("click", function()  {
+    closeWindow(webScreen);
+    deselectIcon(webScreenOpen);
+});
+webScreenOpen.addEventListener("click", function() {
+    openWindow(webScreen);
+    selectIcon(webScreenOpen);
+});
 
 
 calcScreenClose.addEventListener("click", function()  {
@@ -243,6 +257,7 @@ function openWindow(element) {
 initializeWindow("welcome")
 initializeWindow("notes")
 initializeWindow("calculator")
+initializeWindow("web")
 
 
 function dragElement(element) {

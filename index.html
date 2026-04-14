@@ -71,7 +71,7 @@
                     <img src="files.png" style="width: 64px; height: 64px; border-radius: 16px;">
                     <p style="margin: 0px; color: #fff; ">Files</p>
                 </div>
-                <div class="internet" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
+                <div id="webopen" class="internet" style="text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content">
                     <img src="internet.png" style="width: 64px; height: 64px; border-radius: 16px;">
                     <p style="margin: 0px; color: #fff; ">Internet</p>
                 </div>
@@ -142,6 +142,17 @@
                         <button type="button" class="numbers">.</button>
                         <button type="button" class="key-operate operations">=</button>
                     </div>
+                </div>
+            </div>
+
+            <div class="window" id="web" style="display: none; width: 520px; height: 480px;">
+                <div class="windowheader" id="webheader">
+                    <div class="windowclose" id="webclose"></div>
+                    <p style="margin: 0px; color: black; font-weight: 600;">Internet</p>
+                    <div style="width: 16px; margin-right: 6x; height: 16px;"></div>
+                </div>
+                <div class="window-content">
+                    <iframe src="https://www.wikipedia.org/" width="100%" height="400px"></iframe>
                 </div>
             </div>
 
