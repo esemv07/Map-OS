@@ -144,3 +144,84 @@ const calculate = document.querySelectorAll(".operations").forEach(function(item
         }
     })
 })
+
+
+var toDoTasks = JSON.parse(localStorage.getItem("toDoTasks"));
+var currentTask = 0;
+
+if (toDoTasks == null) {
+    toDoTasks = [
+        {
+            title: "Check out @esemv07 on GitHub",
+            date: new Date().toLocaleDateString(),
+            completed: "false"
+        },
+    ]
+    localStorage.setItem("toDoTasks", JSON.stringify(toDoTasks));
+}
+
+function addToTasksList(index) {
+    var tasksList = document.querySelector("#todolist");
+    var task = toDoTasks[index];
+    var newDiv = document.createElement("div");
+    newDiv.innerHTML = `
+        <div style="display: flex; justify-content: space-between;">
+            <div style="display: block;">
+                <input type="checkbox" id="task${index}" class="todocheckbox" name="task${index}" style="cursor: pointer;">
+                <label id="text${index}" class="todolabel" contentEditable="True" style="cursor: text;">${task.title}</label>
+                <p>${task.date}</p>
+            </div>
+            <img src="bin.png" width="32px" height="32px" style="border-radius: 32px; border: 1px solid red; padding: 4px; margin-right: 10px;" onclick="deleteTask(${index})">
+        </div>
+        <hr>
+    `;
+    tasksList.appendChild(newDiv);
+    checkBox = document.querySelector(`#task${index}`);
+    checkBox.addEventListener("change", (event) => {
+        if (event.target.checked) {
+            task.completed = "true"
+        } else {
+            task.completed = "false"
+        }
+        currentTask = index;
+    });
+    taskText = document.querySelector(`#text${index}`)
+    taskText.addEventListener("blur", function() {
+        saveTask(index)
+    });
+}
+
+function saveTask(index) {
+    var newTitle = document.querySelector(`#text${index}`).innerText
+    toDoTasks[index].title = newTitle
+    localStorage.setItem("toDoTasks", JSON.stringify(toDoTasks));
+}
+
+function newTask() {
+    toDoTasks.push(
+        {
+            title: "New Task",
+            date: new Date().toLocaleDateString(),
+            completed: "false"
+        }
+    )
+    currentTask = toDoTasks.length - 1;
+    addToTasksList(currentTask);
+    localStorage.setItem("toDoTasks", JSON.stringify(toDoTasks));
+}
+
+for (let i = 0; i < toDoTasks.length; i++) {
+    addToTasksList(i)
+}
+
+function deleteTask(index) {
+    if (toDoTasks.length > 1) {
+        toDoTasks.splice(index, 1)
+        var tasksList = document.querySelector("#todolist");
+        tasksList.replaceChildren()
+        for (let i = 0; i < toDoTasks.length; i++) {
+            addToTasksList(i)
+        }
+        localStorage.setItem("toDoTasks", JSON.stringify(toDoTasks));
+    }
+}

@@ -42,7 +42,21 @@ var webScreen = document.querySelector("#web")
 var webScreenClose = document.querySelector("#webclose")
 var webScreenOpen = document.querySelector("#webopen")
 
+var toDoScreen = document.querySelector("#todo")
+var toDoScreenClose = document.querySelector("#todoclose")
+var toDoScreenOpen = document.querySelector("#todoopen")
+
 var topBar = document.querySelector("#top")
+
+
+toDoScreenClose.addEventListener("click", function()  {
+    closeWindow(toDoScreen);
+    deselectIcon(toDoScreenOpen);
+});
+toDoScreenOpen.addEventListener("click", function() {
+    openWindow(toDoScreen);
+    selectIcon(toDoScreenOpen);
+});
 
 
 webScreenClose.addEventListener("click", function()  {
@@ -258,6 +272,7 @@ initializeWindow("welcome")
 initializeWindow("notes")
 initializeWindow("calculator")
 initializeWindow("web")
+initializeWindow("todo")
 
 
 function dragElement(element) {
