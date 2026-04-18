@@ -171,7 +171,7 @@ function addToTasksList(index) {
                 <label id="text${index}" class="todolabel" contentEditable="True" style="cursor: text;">${task.title}</label>
                 <p>${task.date}</p>
             </div>
-            <img src="bin.png" width="32px" height="32px" style="border-radius: 32px; border: 1px solid red; padding: 4px; margin-right: 10px;" onclick="deleteTask(${index})">
+            <img src="bin.png" width="32px" height="32px" style="border-radius: 32px; border: 1px solid red; padding: 4px; margin-right: 10px; cursor: pointer;" onclick="deleteTask(${index})">
         </div>
         <hr>
     `;
@@ -224,4 +224,139 @@ function deleteTask(index) {
         }
         localStorage.setItem("toDoTasks", JSON.stringify(toDoTasks));
     }
+}
+
+
+const folders = [
+    {
+        name: "home",
+        content: `
+        <div style="text-align: center; padding: 16px; cursor: pointer;" onclick="enterFolder('pictures')">
+            <img src="folder.png" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black;">pictures</p>
+        </div>
+        <div style="text-align: center; padding: 16px; cursor: pointer;" onclick="enterFolder('documents')">
+            <img src="folder.png" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black;">documents</p>
+        </div>
+        <div style="text-align: center; padding: 16px; cursor: pointer;" onclick="enterFolder('apps')">
+            <img src="folder.png" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black;">apps</p>
+        </div>
+        `
+    },
+    {
+        name: "pictures",
+        content: `
+        <div style="text-align: center; padding: 16px; cursor: pointer;" onclick="openImage('pfp.jpg')">
+            <img src="pfp.jpg" style="width: 64px; height: 64px;">
+            <p style="margin: 0px; color: black;">pfp.jpg</p>
+        </div>
+        <div style="text-align: center; padding: 16px; cursor: pointer;" onclick="openImage('hc-logo.png')">
+            <img src="hc-logo.png" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black;">hc-logo.png</p>
+        </div>
+        `
+    },
+    {
+        name: "apps",
+        content: `
+        <div style="text-align: center; padding: 16px; width: fit-content" onclick="notesScreenOpen2()">
+            <img src="notes.ico" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black; ">Notes</p>
+        </div>
+        <div style="text-align: center; padding: 16px; width: fit-content" onclick="webScreenOpen2()">
+            <img src="internet.png" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black; ">Internet</p>
+        </div>
+        <div style="text-align: center; padding: 16px; width: fit-content" onclick="calcScreenOpen2()">
+            <img src="calc.png" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black; ">Calculator</p>
+        </div>
+        <div style="text-align: center; padding: 16px; width: fit-content" onclick="toDoScreenOpen2()">
+            <img src="todo.png" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black; ">ToDo</p>
+        </div>
+        `
+    },
+    {
+        name: "documents",
+        content: `
+        <div style="text-align: center; padding: 16px; width: fit-content" onclick="openDocument('secret.txt')">
+            <img src="document.png" style="width: 64px; height: 64px; border-radius: 16px;">
+            <p style="margin: 0px; color: black; ">secret.txt</p>
+        </div>
+        `
+    }
+]
+
+function displayFolderContent(folderName) {
+    var index = folders.findIndex(folder => folder.name === folderName);
+    var filesContent = document.querySelector("#filescontent");
+    filesContent.innerHTML = folders[index].content;
+}
+
+var currentFolder = "home";
+
+var listOfFiles = [];
+var forwardFolder = [];
+
+displayFolderContent("home");
+
+function enterFolder(folder) {
+    listOfFiles.push(currentFolder);
+    displayFolderContent(folder);
+    forwardFolder = [];
+    currentFolder = folder;
+    var fileRedo = document.querySelector("#fileforward");
+    fileRedo.style.backgroundColor = "#a6a6a6";
+    fileRedo.style.cursor = "not-allowed";
+    var fileUndo = document.querySelector("#fileback");
+    fileUndo.style.backgroundColor = "white";
+    fileUndo.style.cursor = "pointer";
+    writeFilePath()
+}
+
+function undoFolder() {
+    if (currentFolder != "home") {
+        forwardFolder.push(currentFolder);
+        displayFolderContent(listOfFiles[listOfFiles.length - 1]);
+        currentFolder = listOfFiles.pop();
+        if (currentFolder == "home") {
+            var fileUndo = document.querySelector("#fileback");
+            fileUndo.style.backgroundColor = "#a6a6a6";
+            fileUndo.style.cursor = "not-allowed";
+        }
+        var fileRedo = document.querySelector("#fileforward");
+        fileRedo.style.backgroundColor = "white";
+        fileRedo.style.cursor = "pointer";
+        writeFilePath()
+    }
+}
+
+function redoFolder() {
+    if (forwardFolder.length > 0) {
+        displayFolderContent(forwardFolder[forwardFolder.length - 1]);
+        listOfFiles.push(currentFolder);
+        currentFolder = forwardFolder.pop();
+        if (forwardFolder.length == 0) {
+            var fileRedo = document.querySelector("#fileforward");
+            fileRedo.style.backgroundColor = "#a6a6a6";
+            fileRedo.style.cursor = "not-allowed";
+        }
+        var fileUndo = document.querySelector("#fileback");
+        fileUndo.style.backgroundColor = "white";
+        fileUndo.style.cursor = "pointer";
+        writeFilePath()
+    }
+}
+
+function writeFilePath() {
+    var filePathText = ""
+    for (let i = 0; i < listOfFiles.length; i++) {
+        filePathText += `${listOfFiles[i]}/`
+    }
+    filePathText += `${currentFolder}/`
+    var filePath = document.querySelector("#filepath")
+    filePath.innerText = filePathText
 }

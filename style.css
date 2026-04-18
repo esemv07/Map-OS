@@ -216,6 +216,19 @@ body {
     left: 500px;
 }
 
+#filepath {
+    background-color: #a6a6a6;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+#filebar img {
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 4px;
+    cursor: pointer;
+}
+
 .internet {
     position: absolute;
     display: none;

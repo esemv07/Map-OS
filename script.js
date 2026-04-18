@@ -46,7 +46,50 @@ var toDoScreen = document.querySelector("#todo")
 var toDoScreenClose = document.querySelector("#todoclose")
 var toDoScreenOpen = document.querySelector("#todoopen")
 
+var filesScreen = document.querySelector("#files")
+var filesScreenClose = document.querySelector("#filesclose")
+var filesScreenOpen = document.querySelector("#filesopen")
+
+var picturesScreen = document.querySelector("#picture")
+var picturesScreenClose = document.querySelector("#pictureclose")
+var picturesScreenImage = document.querySelector("#picturesbox")
+var pictureScreenTitle = document.querySelector("#picturename")
+
+var documentScreen = document.querySelector("#document")
+var documentScreenClose = document.querySelector("#documentclose")
+var documentScreenContent = document.querySelector("#documentbox")
+var documentScreenTitle = document.querySelector("#documentname")
+
 var topBar = document.querySelector("#top")
+
+
+function openImage(imagePath) {
+    openWindow(picturesScreen);
+    picturesScreen.style.transform = "translate(-60%, -60%)";
+    picturesScreenImage.innerHTML = `
+    <img src="${imagePath}" style="height: 446px;">
+    `
+    pictureScreenTitle.innerText = `${imagePath}`
+}
+
+picturesScreenClose.addEventListener("click", function() {
+    closeWindow(picturesScreen);
+})
+
+
+documentScreenClose.addEventListener("click", function() {
+    closeWindow(documentScreen);
+})
+
+
+filesScreenClose.addEventListener("click", function()  {
+    closeWindow(filesScreen);
+    deselectIcon(filesScreenOpen);
+});
+filesScreenOpen.addEventListener("click", function() {
+    openWindow(filesScreen);
+    selectIcon(filesScreenOpen);
+});
 
 
 toDoScreenClose.addEventListener("click", function()  {
@@ -273,6 +316,9 @@ initializeWindow("notes")
 initializeWindow("calculator")
 initializeWindow("web")
 initializeWindow("todo")
+initializeWindow("files")
+initializeWindow("picture")
+initializeWindow("document")
 
 
 function dragElement(element) {
@@ -355,4 +401,56 @@ function initializeWindow(elementName) {
     var screen = document.querySelector("#" + elementName);
     addWindowTapHandling(screen);
     dragElement(screen);
+}
+
+
+
+
+function toDoScreenOpen2() {
+    openWindow(toDoScreen);
+    toDoScreen.style.transform = "translate(-60%, -60%)";
+    selectIcon(toDoScreenOpen);
+}
+
+
+function webScreenOpen2() {
+    openWindow(webScreen);
+    webScreen.style.transform = "translate(-60%, -60%)";
+    selectIcon(webScreenOpen);
+}
+
+
+function calcScreenOpen2() {
+    openWindow(calcScreen);
+    calcScreen.style.transform = "translate(-60%, -60%)";
+    selectIcon(calcScreenOpen);
+}
+
+
+function notesScreenOpen2() {
+    openWindow(notesScreen);
+    notesScreen.style.transform = "translate(-60%, -60%)";
+    selectIcon(notesScreenOpen);
+}
+
+
+documents = [
+    {
+        name: "secret.txt",
+        content: `
+        <p>I'm so glad you found me...<br>Thanks for being here!<br>Thanks for checking out my project!<br><br>~ esemv :)</p>
+        `
+    },
+]
+
+function openDocument(documentPath) {
+    openWindow(documentScreen);
+    documentScreen.style.transform = "translate(-60%, -60%)";
+    var index = documents.findIndex(doc => doc.name === documentPath);
+    documentScreenContent.innerHTML = `
+    <div style="text-align: center; width: 468px; height: 368px; background-color: black; color: white; font-family: Courier; border-radius: 8px; padding: 16px;">
+        ${documents[index].content}
+    </div>
+    `
+    documentScreenTitle.innerText = `${documentPath}`
 }
