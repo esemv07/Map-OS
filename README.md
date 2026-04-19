@@ -9,24 +9,24 @@ A [WebOS](https://map-os.netlify.app/) based around travelling a map (your deskt
 - Productivity Peaks 🏔️
 
 ## 📲 Applications
-### Files
+### 📁 Files
 - Folders: pictures, documents, and apps
 - Undo/Redo system with displayed filepath
 - Openable files to display images and text as well as app shortcuts
  
-### Notes
+### 🗒️ Notes
 - Default note to display to new users
 - Basic text features such as **bold**, _italic_, and <ins>underlined</ins> text
 - Note creation with automatic date, title and content editing, and deletion
 - Saving in localStorage for user browser
 
-### Calculator
+### 🧮 Calculator
 - Basic calculator app with default operations
 
-### Internet
+### 🛜 Internet
 - Internal access to Wikipedia
 
-### Todo
+### ☑ Todo
 - Default task to display to new users
 - Task creation with automatic date, name editing, completion, and deletion
 - Saving in localStorage for user browser
