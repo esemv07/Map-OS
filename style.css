@@ -1,6 +1,6 @@
 body {
     overflow: hidden;
-    background-color: black;
+    background-color: #cfaf7c;
 }
 
 .content {
@@ -15,9 +15,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(background-map.jpg);
-    background-size: cover;
-    background-repeat: repeat;
+    background-image: url(map-background.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
     z-index: -1;
     transform: var(--map-transform);
     transition: all 2.5s ease-in-out;
@@ -152,7 +153,7 @@ body {
 }
 
 .peaks {
-    transform: translate(1200px, 600px);
+    transform: translate(1000px, 600px);
 }
 
 .territory {
@@ -160,11 +161,11 @@ body {
 }
 
 .cove {
-    transform: translate(1000px, 350px);
+    transform: translate(800px, 350px);
 }
 
 .waterhole {
-    transform: translate(1250px, 300px);
+    transform: translate(1050px, 300px);
 }
 
 .forest {

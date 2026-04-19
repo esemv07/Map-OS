@@ -188,7 +188,7 @@ function leftClicks() {
         currentApp = document.querySelector(".notes");
     }
     if (leftText == "To Calculation Cove" && currentLocation != "Calculation Cove") {
-        mapTransform = "scale(2) translate(-300px, -100px)"
+        mapTransform = "scale(2) translate(-200px, -100px)"
         backgroundMap.style.setProperty('--map-transform', mapTransform);
         closeWindow(directions)
         closeWindow(currentApp)
@@ -203,7 +203,7 @@ function leftClicks() {
         currentApp = document.querySelector(".calc");
     }
     if (leftText == "To Web Waterhole" && currentLocation != "Web Waterhole") {
-        mapTransform = "scale(2) translate(-600px, -100px)"
+        mapTransform = "scale(2) translate(-400px, -50px)"
         backgroundMap.style.setProperty('--map-transform', mapTransform);
         closeWindow(directions)
         closeWindow(currentApp)
@@ -225,7 +225,7 @@ function leftClicks() {
 
 function rightClicks() {
     if (rightText == "To Productivity Peaks" && currentLocation != "Productivity Peaks") {
-        mapTransform = "scale(2) translate(-550px, -250px)"
+        mapTransform = "scale(2) translate(-400px, -300px)"
         backgroundMap.style.setProperty('--map-transform', mapTransform);
         closeWindow(directions)
         closeWindow(currentApp)
@@ -241,7 +241,7 @@ function rightClicks() {
         currentApp = document.querySelector(".todo");
     }
     if (rightText == "To Web Waterhole" && currentLocation != "Web Waterhole") {
-        mapTransform = "scale(2) translate(-600px, -100px)"
+        mapTransform = "scale(2) translate(-400px, -50px)"
         backgroundMap.style.setProperty('--map-transform', mapTransform);
         closeWindow(directions)
         closeWindow(currentApp)
@@ -256,7 +256,7 @@ function rightClicks() {
         currentApp = document.querySelector(".internet");
     }
     if (rightText == "To Calculation Cove" && currentLocation != "Calculation Cove") {
-        mapTransform = "scale(2) translate(-300px, -100px)"
+        mapTransform = "scale(2) translate(-200px, -100px)"
         backgroundMap.style.setProperty('--map-transform', mapTransform);
         closeWindow(directions)
         closeWindow(currentApp)
